@@ -4,7 +4,7 @@
       <div class="site-header__inner section-inner">
         <a href="#inizio" class="site-header__logo" aria-label="FANUC — torna all'inizio">
           <div class="fanuc-logo-wrap">
-            <img src="/src/assets/fanuc/fanuc-logo.svg" alt="FANUC" class="fanuc-logo-img" width="100" height="22" />
+            <img src="../assets/fanuc/fanuc-logo.svg" alt="FANUC" class="fanuc-logo-img" width="100" height="22" />
           </div>
         </a>
 

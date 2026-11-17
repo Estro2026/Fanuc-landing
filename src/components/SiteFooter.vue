@@ -6,7 +6,7 @@
         <div class="site-footer__top">
           <div class="site-footer__brand">
             <div class="fanuc-logo-wrap">
-              <img src="/src/assets/fanuc/fanuc-logo.svg" alt="FANUC" class="fanuc-logo-img" width="100" height="22" />
+              <img src="../assets/fanuc/fanuc-logo.svg" alt="FANUC" class="fanuc-logo-img" width="100" height="22" />
             </div>
             <!--
               TAGLINE — in attesa di DIN Pro Bold dal cliente.
