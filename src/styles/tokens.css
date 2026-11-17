@@ -1,0 +1,143 @@
+/* ============================================================
+   FANUC Design Tokens — Brand Platform V1.0 May 2026
+   Fonte primaria: MCI-05806-CO_FEC_Brand-Platform_V1.pdf
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     COLORI BRAND — valori ufficiali
+     ---------------------------------------------------------- */
+  --fanuc-yellow:  #FFD702;
+  --fanuc-red:     #C32C30;
+  --fanuc-black:   #000000;
+  --fanuc-white:   #FFFFFF;
+  --fanuc-blue:    #AACAE6;   /* secondario eccezionale */
+  --fanuc-beige:   #D2CFB4;   /* secondario eccezionale */
+  --fanuc-green:   #6EAE43;   /* SOLO sostenibilità/cobot */
+
+  /* Tinte giallo ufficiali (mix con bianco, Brand Platform)
+     Calcolo: mix(#FFD702, #FFFFFF, percentuale)
+     80% → R:255 G:223 B:53  → #FFDF35
+     60% → R:255 G:231 B:103 → #FFE767
+     40% → R:255 G:239 B:154 → #FFEF9A
+     20% → R:255 G:247 B:204 → #FFF7CC
+  */
+  --fanuc-yellow-80: #FFDF35;
+  --fanuc-yellow-60: #FFE767;
+  --fanuc-yellow-40: #FFEF9A;
+  --fanuc-yellow-20: #FFF7CC;
+
+  /* Tinte nero ufficiali (mix con bianco, Brand Platform)
+     80% → #333333
+     60% → #666666
+     40% → #999999
+     20% → #CCCCCC
+  */
+  --fanuc-black-80: #333333;
+  --fanuc-black-60: #666666;
+  --fanuc-black-40: #999999;
+  --fanuc-black-20: #CCCCCC;
+
+  /* ----------------------------------------------------------
+     TIPOGRAFIA
+     ---------------------------------------------------------- */
+  --font-display: "Druk Medium", "Druk", Impact, "Arial Narrow", sans-serif;
+  --font-body:    "DIN Pro", "DINPro", "Helvetica Neue", Arial, sans-serif;
+  --font-special: "Minion Pro Semibold", "Minion Pro", Georgia, serif; /* Italic — usare sempre con font-style: italic */
+
+  /* ----------------------------------------------------------
+     SMART GRID — Brand Platform p.16
+     Regola: lato corto / 24 = 1 unità; margine = 1 unità
+     Implementazione web: valore stabile per breakpoint
+     ---------------------------------------------------------- */
+  --grid-unit:    calc(min(100vw, 100vh) / 24);
+  --page-margin:  max(var(--grid-unit), 20px);
+
+  /* ----------------------------------------------------------
+     SMART SQUARE — angolo tagliato a 45°
+     Taglio: angolo superiore destro (posizione standard)
+     ---------------------------------------------------------- */
+  --cut-xs:   8px;    /* elementi molto piccoli */
+  --cut-sm:   14px;   /* card, pulsanti */
+  --cut-md:   22px;   /* card grandi, box sezione */
+  --cut-lg:   32px;   /* blocchi prominenti */
+  --cut-hero: 40px;   /* hero, grandi placeholder */
+
+  /* ----------------------------------------------------------
+     SCALA SPAZI — multipli precisi, NON valori arbitrari
+     Base: 8px grid
+     ---------------------------------------------------------- */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32: 128px;
+
+  /* Alias semantici (usare questi nel codice) */
+  --space-xs:  var(--space-2);    /* 8px  — micro gap, offset */
+  --space-sm:  var(--space-4);    /* 16px — gap compatto, padding interno */
+  --space-md:  var(--space-6);    /* 24px — gap card, padding sezione */
+  --space-lg:  var(--space-12);   /* 48px — gap sezione, padding card grande */
+  --space-xl:  var(--space-20);   /* 80px — padding sezione principale */
+  --space-2xl: var(--space-32);  /* 128px — separazione sezioni grandi */
+
+  /* ----------------------------------------------------------
+     PATTERN SEZIONE — spaziatura fissa per tutti gli header
+     eyebrow → H2 → lead: stessa regola in ogni sezione
+     ---------------------------------------------------------- */
+  --section-eyebrow-gap:  var(--space-xs);    /* 8px  sotto eyebrow */
+  --section-h2-gap:       var(--space-md);    /* 24px sotto H2 */
+  --section-lead-gap:     var(--space-xl);    /* 80px sotto lead (prima del contenuto) */
+  --section-padding:      var(--space-xl);    /* 80px padding-block sezioni */
+
+  /* ----------------------------------------------------------
+     GAP GRIGLIE — regole fisse
+     ---------------------------------------------------------- */
+  --gap-cards:    var(--space-md);   /* 24px — tutte le griglie card */
+  --gap-compact:  var(--space-sm);   /* 16px — griglia compatta (applicazioni) */
+
+  /* ----------------------------------------------------------
+     LAYOUT
+     ---------------------------------------------------------- */
+  --container-max:  1440px;
+  --header-height:  72px;
+
+  /* ----------------------------------------------------------
+     TRANSIZIONI — essenziali, nessun effetto decorativo
+     ---------------------------------------------------------- */
+  --transition-fast: 150ms ease;
+  --transition-base: 220ms ease;
+  --transition-cut:  400ms cubic-bezier(0.2, 0.7, 0.2, 1);  /* taglio Smart Square: hover e rivelazione */
+}
+
+/* Scala mobile: riduzione proporzionale */
+@media (max-width: 767px) {
+  :root {
+    --cut-sm:    8px;
+    --cut-md:   14px;
+    --cut-lg:   22px;
+    --cut-hero: 28px;
+    --space-xl:  var(--space-12);   /* 48px su mobile */
+    --space-2xl: var(--space-20);   /* 80px su mobile */
+    --section-padding: var(--space-12);  /* 48px su mobile */
+    --section-lead-gap: var(--space-lg); /* 48px su mobile */
+  }
+}
+
+/* Scala tablet: valori intermedi */
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --space-xl:  var(--space-16);   /* 64px */
+    --section-padding: var(--space-16);
+    --section-lead-gap: var(--space-16);
+  }
+}

@@ -1,0 +1,311 @@
+/* ============================================================
+   FANUC Layout System — Brand Platform V1.0 May 2026
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   SHELL E CONTAINER
+   ---------------------------------------------------------- */
+.page-shell {
+  padding-inline: var(--page-margin);
+  width: 100%;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* ----------------------------------------------------------
+   GRIGLIA — 12 colonne
+   ---------------------------------------------------------- */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gap-cards);
+}
+
+/* ----------------------------------------------------------
+   SMART SQUARE — clip-path polygon, angolo superiore destro
+   taglio 45°. NON usare border-radius.
+   ---------------------------------------------------------- */
+/* --cut registrata: il taglio a 45° diventa animabile (hover CTA, rivelazione card) */
+@property --cut {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+/* Rivelazione allo scroll: diagonale a 45° che si apre dall'angolo tagliato.
+   Nascosta solo se lo script la sta osservando (.reveal-pending): senza JS o se non
+   agganciata, la card resta visibile. */
+.reveal-cut.reveal-pending:not(.is-revealed) {
+  --cut: 150vmax;
+}
+
+.smart-square-xs {
+  clip-path: polygon(0 0, calc(100% - var(--cut-xs)) 0, 100% var(--cut-xs), 100% 100%, 0 100%);
+}
+.smart-square-sm {
+  clip-path: polygon(0 0, calc(100% - var(--cut-sm)) 0, 100% var(--cut-sm), 100% 100%, 0 100%);
+}
+.smart-square-md {
+  clip-path: polygon(0 0, calc(100% - var(--cut-md)) 0, 100% var(--cut-md), 100% 100%, 0 100%);
+}
+.smart-square-lg {
+  clip-path: polygon(0 0, calc(100% - var(--cut-lg)) 0, 100% var(--cut-lg), 100% 100%, 0 100%);
+}
+.smart-square-hero {
+  clip-path: polygon(0 0, calc(100% - var(--cut-hero)) 0, 100% var(--cut-hero), 100% 100%, 0 100%);
+}
+
+/* ----------------------------------------------------------
+   SUPERFICI — colori CTA in base allo sfondo della sezione.
+   Ogni stato (default/hover/focus) deve staccarsi dallo sfondo:
+   - chiaro (default): nero → hover rosso (il giallo su bianco ha bordo 1.4:1)
+   - .surface-yellow: rosso (come le CTA advertising) → hover nero
+   - .surface-dark:   giallo → hover bianco
+   ---------------------------------------------------------- */
+:root {
+  --cta-bg: var(--fanuc-black);
+  --cta-fg: var(--fanuc-yellow);
+  --cta-bg-hover: var(--fanuc-red);
+  --cta-fg-hover: var(--fanuc-white);
+  --cta2-line: var(--fanuc-black);
+  --cta2-fg-hover: var(--fanuc-white);
+  --focus-ring: var(--fanuc-black);
+}
+.surface-yellow {
+  --cta-bg: var(--fanuc-red);
+  --cta-fg: var(--fanuc-white);
+  --cta-bg-hover: var(--fanuc-black);
+  --cta-fg-hover: var(--fanuc-yellow);
+  --cta2-line: var(--fanuc-black);
+  --cta2-fg-hover: var(--fanuc-yellow);
+  --focus-ring: var(--fanuc-black);
+}
+.surface-dark {
+  --cta-bg: var(--fanuc-yellow);
+  --cta-fg: var(--fanuc-black);
+  --cta-bg-hover: var(--fanuc-white);
+  --cta-fg-hover: var(--fanuc-black);
+  --cta2-line: var(--fanuc-white);
+  --cta2-fg-hover: var(--fanuc-black);
+  --focus-ring: var(--fanuc-yellow);
+}
+
+/* ----------------------------------------------------------
+   CTA — btn-primary (Smart Square)
+   ---------------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: var(--cta-bg);
+  color: var(--cta-fg);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-sm) var(--space-8);  /* 16px 32px */
+  text-decoration: none;
+  --cut: var(--cut-sm);
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%);
+  transition: background var(--transition-fast), color var(--transition-fast), --cut var(--transition-cut);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--cta-bg-hover);
+  color: var(--cta-fg-hover);
+  --cut: var(--cut-md);
+}
+.btn-primary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* ----------------------------------------------------------
+   CTA — btn-secondary (bordo nero)
+   ---------------------------------------------------------- */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: transparent;
+  color: var(--cta2-line);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: calc(var(--space-sm) - 2px) var(--space-8);  /* compensa bordo 2px */
+  text-decoration: none;
+  border: 2px solid var(--cta2-line);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  cursor: pointer;
+  outline: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.btn-secondary:hover {
+  background: var(--cta2-line);
+  color: var(--cta2-fg-hover);
+}
+.btn-secondary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* ----------------------------------------------------------
+   TRANSIZIONE SMART SQUARE TRA SEZIONI
+   L'angolo superiore destro della sezione è tagliato a 45°:
+   il triangolo prende il colore della sezione precedente (--cut-prev).
+   Non sposta il contenuto: lo spacing delle sezioni resta invariato.
+   ---------------------------------------------------------- */
+.section-cut {
+  position: relative;
+}
+/* top -1px: copre la riga sub-pixel del bordo sezione, che altrimenti resta visibile */
+.section-cut::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: calc(var(--cut-hero) + 1px);
+  height: calc(var(--cut-hero) + 1px);
+  background: var(--cut-prev);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  pointer-events: none;
+}
+
+/* ----------------------------------------------------------
+   SMART GRID VISIBILE — texture a 1 unità di griglia (Brand Platform p.16)
+   Linee in tinta gialla ufficiale, piene (no opacity, no gradient).
+   Solo sezioni tecniche.
+   ---------------------------------------------------------- */
+.smart-grid-bg {
+  background-size: var(--grid-unit) var(--grid-unit);
+  background-position: 0 0;
+}
+/* su fondo giallo pieno: linee bianche */
+.smart-grid-bg--on-yellow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100 0V100H0' fill='none' stroke='%23FFFFFF' stroke-width='1' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+}
+@media (max-width: 767px) {
+  .smart-grid-bg {
+    background-size: calc(var(--grid-unit) * 2) calc(var(--grid-unit) * 2);
+  }
+}
+
+/* ----------------------------------------------------------
+   SEZIONE — spaziatura base
+   ---------------------------------------------------------- */
+.section {
+  padding-block: var(--section-padding);
+}
+
+/* ----------------------------------------------------------
+   PATTERN HEADER SEZIONE — regola fissa eyebrow / H2 / lead
+   Usare questo contenitore in ogni sezione.
+
+   <div class="section__header">
+     <p class="eyebrow section__eyebrow">Label</p>
+     <h2 class="h2 section__title">Titolo</h2>
+     <p class="lead section__lead">Descrizione.</p>
+   </div>
+   ---------------------------------------------------------- */
+.section__header {
+  margin-bottom: var(--section-lead-gap);
+}
+
+.section__eyebrow {
+  margin-bottom: var(--section-eyebrow-gap);  /* 8px */
+}
+
+.section__title {
+  margin-bottom: var(--section-h2-gap);       /* 24px */
+}
+
+.section__lead {
+  margin-bottom: 0;
+  max-width: 60ch;
+}
+
+/* Header centrato (variante) */
+.section__header--center {
+  text-align: center;
+}
+.section__header--center .section__lead {
+  margin-inline: auto;
+}
+
+/* ----------------------------------------------------------
+   LOGO FANUC — area di rispetto su fondo giallo
+   Regola brand: logo SEMPRE su fondo giallo.
+   ---------------------------------------------------------- */
+.fanuc-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: var(--fanuc-yellow);
+  /* Safety zone X uguale su tutti i 4 lati (Brand Platform p.12 — diagramma safety zone) */
+  padding: var(--space-3);   /* 12px su tutti i lati */
+  /* Smart Square — angolo superiore destro (Brand Platform p.12 compact version) */
+  clip-path: polygon(0 0, calc(100% - var(--cut-sm)) 0, 100% var(--cut-sm), 100% 100%, 0 100%);
+}
+
+.fanuc-logo-img {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
+/* ----------------------------------------------------------
+   PITTOGRAMMI CANTO — SVG ufficiali ricolorati con maschera.
+   Brand Platform: trasparenti, bianchi o su fondo scuro, con o senza cerchio.
+   Il colore segue currentColor (bianco su nero di default).
+   ---------------------------------------------------------- */
+.pictogram {
+  display: block;
+  width: 96px;
+  height: 96px;
+  background-color: currentColor;
+  -webkit-mask: var(--pictogram) center / contain no-repeat;
+  mask: var(--pictogram) center / contain no-repeat;
+  color: var(--fanuc-white);
+}
+@media (max-width: 767px) {
+  .pictogram {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+/* ----------------------------------------------------------
+   ACCESSIBILITÀ — elemento visivamente nascosto
+   ---------------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ----------------------------------------------------------
+   REDUCED MOTION
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
