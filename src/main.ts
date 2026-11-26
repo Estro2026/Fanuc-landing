@@ -1,10 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import './styles/tokens.css'
-import './styles/typography.css'
-import './styles/layout.css'
+// Branch wireframe-conversione: monta il wireframe. Il mockup resta su main.
+import WireframeApp from './wireframe/WireframeApp.vue'
 
-import { initRevealCut } from './composables/revealCut'
-
-createApp(App).mount('#app')
-initRevealCut()
+createApp(WireframeApp).mount('#app')

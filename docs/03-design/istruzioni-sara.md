@@ -87,3 +87,8 @@
   - 01: "Movimenta carichi fino a 30 kg con il modello CRX-30iA, e scegli nella gamma il carico utile adatto al tuo processo."
   - 03: "Posiziona i pezzi ciclo dopo ciclo con una ripetibilità fino a ±0,03 mm, a seconda del modello e delle specifiche tecniche."
   - Scartate le proposte precedenti: aggiungevano promesse non verificate ("senza interrompere il flusso di linea", "dove fa differenza") (cutout CRX, datasheet, pictogrammi in cerchio, ritmo sezioni)
+
+## 2026-11-26 · Wireframe conversione (branch `wireframe-conversione`)
+- Fase: wireframe alternativo. Fonte: CLIENTE (istruzione Sara). Copy: PROPOSTA.
+- Testo: altra versione su branch separato, stesso contenuto, wireframe; struttura semplice come le pagine fanuc.eu ROBOSHOT Plast 2026, Iperammortamento 2026 e Descrizione del prodotto. Niente video in hero. Copy più diretto. Obiettivo: far conoscere il prodotto e raccogliere lead.
+- Il mockup su `main` non è toccato.
