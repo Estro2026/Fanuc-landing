@@ -1,11 +1,14 @@
 name: Deploy su GitHub Pages
 
-# Compila la landing e pubblica dist/ nel branch gh-pages.
+# Pubblica nel branch gh-pages due versioni separate:
+#   /Fanuc-landing/            → mockup (branch main)
+#   /Fanuc-landing/wireframe/  → wireframe (branch wireframe-conversione)
+# File identico su entrambi i branch: ogni push ricostruisce tutte e due le versioni.
 # Impostazione Pages: Source "Deploy from a branch" → Branch "gh-pages" / (root).
 
 on:
   push:
-    branches: [main]
+    branches: [main, wireframe-conversione]
   workflow_dispatch:
 
 permissions:
@@ -19,16 +22,32 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout mockup (main)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: mockup
+      - name: Checkout wireframe
+        uses: actions/checkout@v4
+        with:
+          ref: wireframe-conversione
+          path: wireframe
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npx vite build
-      - name: Pubblica dist/ nel branch gh-pages
-        working-directory: dist
+      - name: Build mockup
+        working-directory: mockup
+        run: npm ci && npx vite build
+      - name: Build wireframe
+        working-directory: wireframe
+        run: npm ci && npx vite build --base /Fanuc-landing/wireframe/
+      - name: Pubblica nel branch gh-pages
         run: |
+          mkdir site
+          cp -r mockup/dist/. site/
+          mkdir site/wireframe
+          cp -r wireframe/dist/. site/wireframe/
+          cd site
           touch .nojekyll
           git init -q
           git checkout -q -b gh-pages
