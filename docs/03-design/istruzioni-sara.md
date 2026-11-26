@@ -107,3 +107,7 @@
 ## 2026-11-26 · Wireframe: barra ancore al vivo
 - Fonte: CLIENTE. Fondo della barra a tutta larghezza; testo (x140) e CTA (fine a x1303) restano nella posizione precedente.
 
+
+## 2026-11-26 · Wireframe: immagini hero e iperammortamento coerenti
+- Fonte: CLIENTE. Stessa regola per entrambe: testo 540px dal margine 120px, immagine 713x476 al vivo a destra, immagine e testo centrati in verticale. Mobile: immagine sopra a tutta larghezza.
+

@@ -76,7 +76,7 @@
       </section>
 
       <!-- 5. IPERAMMORTAMENTO — testo 503px + immagine 593×333 -->
-      <section id="incentivi" class="wf-module wf-shell">
+      <section id="incentivi" class="wf-module">
         <div class="wf-split">
           <div class="wf-split__text">
             <h2 class="wf-h3">Iperammortamento 2026: CRX può rientrarci</h2>
@@ -289,7 +289,7 @@ body { margin: 0; }
 .wf-hero__text { padding-left: 120px; padding-right: 52px; }
 .wf-hero__text .wf-h1, .wf-hero__lead { max-width: 540px; }
 .wf-hero__lead { font-size: 28px; line-height: 39.2px; margin-bottom: 32px; }
-.wf-hero__img { align-self: start; height: 476px; }
+.wf-hero__img { align-self: center; height: 476px; }
 .wf-hero__down { position: absolute; left: 50%; bottom: 31px; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: var(--ink); display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 700; }
 
 /* Barra ancore — 76px */
@@ -322,9 +322,11 @@ body { margin: 0; }
 .wf-acard__img { aspect-ratio: 580 / 386; }
 .wf-acard__text { padding: 32px 32px 0; }
 
-/* Split testo 503 + immagine 593×333 */
-.wf-split { display: grid; grid-template-columns: 503px 593px; justify-content: space-between; align-items: start; }
-.wf-split__img { aspect-ratio: 593 / 333; }
+/* Split — stessa regola della hero: testo 540px dal margine 120px, immagine 713×476 al vivo a destra, centrate in verticale */
+.wf-split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+.wf-split__text { padding-left: 120px; padding-right: 52px; }
+.wf-split__text > * { max-width: 540px; }
+.wf-split__img { height: 476px; }
 .wf-split .wf-btn { margin-top: 32px; }
 .wf-steps { counter-reset: s; margin-top: 12px; }
 .wf-steps li { counter-increment: s; position: relative; padding-left: 40px; font-size: 20px; line-height: 28px; margin-bottom: 12px; }
@@ -379,7 +381,7 @@ body { margin: 0; }
   .wf-shell { padding-inline: 48px; }
   .wf-hero__text { padding-left: 48px; }
   .wf-anchors__bar { padding: 0 50px 0 68px; }
-  .wf-split { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .wf-split__text { padding-left: 48px; }
   .wf-quote { grid-template-columns: 1fr 1fr; }
 }
 /* Tablet */
@@ -415,6 +417,8 @@ body { margin: 0; }
   .wf-grid2 { gap: 32px; }
   .wf-acard__text, .wf-quote__text { padding: 20px 0 0; }
   .wf-split .wf-btn { display: block; text-align: center; }
+  .wf-split__img { order: -1; height: auto; aspect-ratio: 375 / 246; }
+  .wf-split__text { padding: 32px 16px 0; }
   .wf-logos { grid-template-columns: repeat(2, 1fr); }
   .wf-form { flex-direction: column; gap: 16px; }
   .wf-form-section { padding: 56px 0; }
