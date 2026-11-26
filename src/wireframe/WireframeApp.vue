@@ -24,7 +24,7 @@
       </section>
 
       <!-- Barra ancore — fanuc.eu: 76px, voci 16px, CTA a destra -->
-      <nav class="wf-anchors wf-shell" aria-label="Sezioni della pagina">
+      <nav class="wf-anchors" aria-label="Sezioni della pagina">
         <div class="wf-anchors__bar">
           <a href="#vantaggi">VANTAGGI</a>
           <a href="#applicazioni">APPLICAZIONI</a>
@@ -294,7 +294,8 @@ body { margin: 0; }
 
 /* Barra ancore — 76px */
 .wf-anchors { position: sticky; top: 0; z-index: 9; margin-bottom: 84px; }
-.wf-anchors__bar { height: 76px; background: var(--ink); display: flex; align-items: center; gap: 44px; padding: 0 2px 0 20px; }
+/* Fondo al vivo; testo e CTA restano dove erano: 120px di margine pagina + 20px (sinistra) / +2px (destra) */
+.wf-anchors__bar { height: 76px; background: var(--ink); display: flex; align-items: center; gap: 44px; padding: 0 122px 0 140px; }
 .wf-anchors__bar a:not(.wf-btn) { color: #fff; font-size: 16px; line-height: 24px; text-decoration: none; white-space: nowrap; }
 .wf-anchors__bar .wf-btn { margin-left: auto; }
 
@@ -377,6 +378,7 @@ body { margin: 0; }
 @media (max-width: 1200px) {
   .wf-shell { padding-inline: 48px; }
   .wf-hero__text { padding-left: 48px; }
+  .wf-anchors__bar { padding: 0 50px 0 68px; }
   .wf-split { grid-template-columns: 1fr 1fr; gap: 48px; }
   .wf-quote { grid-template-columns: 1fr 1fr; }
 }
@@ -406,8 +408,7 @@ body { margin: 0; }
   .wf-body, .wf-steps li { font-size: 18px; line-height: 25.2px; }
   .wf-hero__lead, .wf-lead { font-size: 22px; line-height: 30.8px; }
   .wf-module, .wf-hero, .wf-anchors { margin-bottom: 56px; }
-  .wf-anchors { margin-inline: 0; padding-inline: 0; }
-  .wf-anchors__bar { height: 56px; padding-left: 16px; }
+  .wf-anchors__bar { height: 56px; padding: 0 16px; }
   .wf-anchors__bar a:not(.wf-btn) { font-size: 14px; }
   .wf-anchors__bar .wf-btn { padding: 10px 16px; font-size: 14px; }
   .wf-grid3, .wf-grid2, .wf-split, .wf-quote { grid-template-columns: 1fr; }

@@ -103,3 +103,7 @@
 - Header, form e footer in scala di grigi come il resto del wireframe.
 - Struttura: 1 Hero · 2 Problema PMI (3 punti) · 3 Otto benefit con mini video · 4 Applicazioni per settore · 5 Iperammortamento · 6 Perché FANUC · 7 FAQ e form breve.
 - Da confermare: condizioni claim 8 anni, assistenza in Italia (non presente su serie-crx), aliquote e requisiti iperammortamento, loghi clienti.
+
+## 2026-11-26 · Wireframe: barra ancore al vivo
+- Fonte: CLIENTE. Fondo della barra a tutta larghezza; testo (x140) e CTA (fine a x1303) restano nella posizione precedente.
+
