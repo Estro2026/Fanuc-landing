@@ -115,3 +115,9 @@
 ## 2026-11-26 · Wireframe: footer senza uscite
 - Fonte: CLIENTE. Struttura footer fanuc.eu invariata (colonne, social, link legali). Le colonne puntano alle sezioni della landing; Contattaci porta al form. Pagine legali e social si aprono in una nuova scheda, la landing resta aperta.
 
+
+## 2026-11-26 · Wireframe: keyword e copy dal file Google Ads
+- Fonte: CLIENTE (istruzione Sara) su MATERIALE (file Google Ads nov26-mar27). Copy: PROPOSTA.
+- Keyword dei gruppi Cobot CRX, Robotica per PMI, Pallettizzazione, Automazione macchine utensili inserite in title, meta, H1, H2, card applicazioni e FAQ. Spunti dagli annunci per hero, sezione problema, benefit, applicazioni, assistenza in Italia. Link secondario 'Oppure richiedi una demo'.
+- Mappatura: docs/02-research/keyword-landing-crx.md
+

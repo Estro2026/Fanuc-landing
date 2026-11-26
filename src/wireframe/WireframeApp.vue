@@ -13,10 +13,11 @@
       <!-- 1. HERO — 100vh meno header; testo 540px a sinistra, immagine metà destra -->
       <section class="wf-hero">
         <div class="wf-hero__text">
-          <p class="wf-eyebrow">Robot collaborativi FANUC CRX</p>
-          <h1 class="wf-h1">Il cobot FANUC pensato per le PMI</h1>
-          <p class="wf-hero__lead">CRX lavora accanto ai tuoi operatori e si occupa dei compiti ripetitivi. Si installa in fretta, si programma a mano e funziona 8 anni senza manutenzione.*</p>
+          <p class="wf-eyebrow">Cobot FANUC CRX</p>
+          <h1 class="wf-h1">Robot collaborativi CRX: il primo robot per la tua PMI</h1>
+          <p class="wf-hero__lead">La semplicità di un cobot con l'affidabilità della robotica FANUC. CRX lavora accanto ai tuoi operatori, si programma a mano e funziona 8 anni senza manutenzione.*</p>
           <a href="#contatto" class="wf-btn wf-btn--light">Parla con un esperto</a>
+          <a href="#contatto" class="wf-hero__alt">Oppure richiedi una demo</a>
           <p class="wf-footnote">* Claim FANUC. Condizioni da verificare prima della pubblicazione.</p>
         </div>
         <div class="wf-ph wf-hero__img">IMMAGINE · cobot CRX al lavoro accanto a un operatore</div>
@@ -36,7 +37,7 @@
 
       <!-- 2. PROBLEMA PMI — 3 card icona 172px -->
       <section id="problema" class="wf-module wf-shell">
-        <h2 class="wf-h2">Ti riconosci in una di queste situazioni?</h2>
+        <h2 class="wf-h2">Automatizzare una PMI non deve essere complicato</h2>
         <ul class="wf-grid3">
           <li v-for="p in problems" :key="p.t" class="wf-icard">
             <span class="wf-ph wf-icard__icon">PITTOGRAMMA</span>
@@ -44,12 +45,12 @@
             <p class="wf-body">{{ p.c }}</p>
           </li>
         </ul>
-        <p class="wf-lead wf-after">CRX nasce per risolvere questi tre problemi.</p>
+        <p class="wf-lead wf-after">Con CRX automatizzi un passo alla volta, partendo dal compito che ti pesa di più.</p>
       </section>
 
       <!-- 3. 8 BENEFIT — card 384px con mini video 384×256 -->
       <section id="vantaggi" class="wf-module wf-shell">
-        <h2 class="wf-h2">8 motivi per scegliere CRX</h2>
+        <h2 class="wf-h2">Non tutti i cobot sono uguali: 8 motivi per scegliere CRX</h2>
         <ul class="wf-grid3">
           <li v-for="b in benefits" :key="b.t" class="wf-pcard">
             <div class="wf-ph wf-pcard__media">▶ MINI VIDEO · {{ b.v }}</div>
@@ -63,7 +64,7 @@
 
       <!-- 4. APPLICAZIONI — griglia 2 colonne, immagini 580×386, testo rientrato 32px -->
       <section id="applicazioni" class="wf-module wf-shell">
-        <h2 class="wf-h2">Dove lavora CRX</h2>
+        <h2 class="wf-h2">Cobot per handling, saldatura e pallettizzazione</h2>
         <ul class="wf-grid2">
           <li v-for="a in apps" :key="a.t" class="wf-acard">
             <div class="wf-ph wf-acard__img">IMMAGINE · {{ a.img }}</div>
@@ -181,10 +182,11 @@
 
 <script setup lang="ts">
 // Copy: PROPOSTA. Fatti tecnici da fanuc.eu/it-it/serie-crx (RICERCA).
+// Keyword e spunti dal file Google Ads nov26-mar27 (MATERIALE): vedi docs/02-research/keyword-landing-crx.md
 const problems = [
   { t: 'Mancano persone', c: 'Trovare e tenere operatori è sempre più difficile.' },
-  { t: 'Compiti ripetitivi', c: 'Carico, scarico e pallettizzazione tolgono tempo al lavoro che conta.' },
-  { t: 'Paura della complessità', c: 'Temi che un robot sia difficile da installare e programmare.' },
+  { t: 'Compiti ripetitivi', c: 'Carichi manuali, carico e scarico CNC e pallettizzazione tolgono tempo al lavoro che conta.' },
+  { t: 'Paura della complessità', c: 'Temi che un robot sia difficile da programmare, o poco adatto ai piccoli lotti.' },
 ]
 
 const benefits = [
@@ -199,24 +201,25 @@ const benefits = [
 ]
 
 const apps = [
-  { t: 'Metalmeccanica', c: 'Asservimento di macchine CNC e saldatura ad arco.', img: 'CRX su macchina utensile' },
+  { t: 'Metalmeccanica', c: 'Robot per carico e scarico CNC e cobot per saldatura: più ore macchina, anche nei turni non presidiati.', img: 'CRX su macchina utensile' },
   { t: 'Food & Beverage', c: 'Movimentazione e confezionamento con i modelli Food.', img: 'CRX Food' },
-  { t: 'Logistica e packaging', c: 'Pallettizzazione e movimentazione dei materiali.', img: 'CRX-20iA/L pallettizzazione' },
+  { t: 'Logistica e packaging', c: 'Pallettizzazione con cobot a fine linea, anche per piccoli lotti misti. Meno carichi manuali.', img: 'CRX-20iA/L pallettizzazione' },
   { t: 'Elettronica e assemblaggio', c: 'Assemblaggio e ispezione visiva con iRVision.', img: 'CRX con iRVision' },
 ]
 
 const why = [
   { t: 'Affidabilità comprovata', c: 'Robustezza verificata con test di vita accelerati.' },
-  { t: 'Assistenza in Italia', c: '[DA CONFERMARE CON FANUC: sedi, tecnici, ricambi]' },
+  { t: 'Assistenza in Italia', c: 'Supporto e assistenza FANUC in Italia, dalla scelta del modello all\'avvio.' },
   { t: 'Formazione gratuita', c: 'Video e-learning CRX gratuiti per il tuo team.' },
 ]
 
 const faq = [
   { q: 'Serve saper programmare?', a: 'No. Guidi il braccio a mano e componi i cicli sul tablet con il drag & drop.' },
+  { q: 'Un cobot conviene anche per piccoli lotti?', a: 'Può esserlo: con la guida manuale e il drag & drop riprogrammi CRX quando cambi pezzo. Valutiamo insieme il tuo caso.' },
   { q: 'Quale modello mi serve?', a: 'Dipende da carico, sbraccio e ciclo. Lo scegliamo insieme.' },
   { q: 'Può lavorare senza protezioni?', a: 'Dipende dalla valutazione dei rischi della tua applicazione, che va sempre fatta.' },
   { q: 'Quanto ci vuole per installarlo?', a: 'Dipende dal processo. Ti diamo una stima dopo aver visto la tua applicazione.' },
-  { q: 'Quanto costa?', a: 'Dipende da modello e accessori. Ti prepariamo un preventivo su misura.' },
+  { q: 'Quanto costa un robot collaborativo?', a: 'Dipende da modello, accessori e applicazione. Ti prepariamo un preventivo su misura.' },
   { q: 'Posso usare l\'iperammortamento?', a: 'Può rientrare se bene e investimento rispettano i requisiti di legge.' },
 ]
 
@@ -295,6 +298,7 @@ body { margin: 0; }
 .wf-hero__text .wf-h1, .wf-hero__lead { max-width: 540px; }
 .wf-hero__lead { font-size: 28px; line-height: 39.2px; margin-bottom: 32px; }
 .wf-hero__img { align-self: center; height: 476px; }
+.wf-hero__alt { display: inline-block; margin-left: 24px; font-size: 16px; line-height: 22px; font-weight: 700; color: var(--ink); }
 .wf-hero__down { position: absolute; left: 50%; bottom: 31px; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: var(--ink); display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 700; }
 
 /* Barra ancore — 76px */
@@ -407,6 +411,7 @@ body { margin: 0; }
   .wf-hero__img { order: -1; height: auto; aspect-ratio: 375 / 246; }
   .wf-hero__text { padding: 32px 16px 0; max-width: none; }
   .wf-hero__text .wf-btn { display: block; text-align: center; }
+  .wf-hero__alt { display: block; margin: 16px 0 0; text-align: center; }
   .wf-hero__down { display: none; }
   .wf-h1 { font-size: 32px; line-height: 40px; }
   .wf-h2 { font-size: 28px; line-height: 36px; margin-bottom: 24px; }
