@@ -121,3 +121,8 @@
 - Keyword dei gruppi Cobot CRX, Robotica per PMI, Pallettizzazione, Automazione macchine utensili inserite in title, meta, H1, H2, card applicazioni e FAQ. Spunti dagli annunci per hero, sezione problema, benefit, applicazioni, assistenza in Italia. Link secondario 'Oppure richiedi una demo'.
 - Mappatura: docs/02-research/keyword-landing-crx.md
 
+
+## 2026-11-26 · Wireframe: una sola CTA in hero, menu ancore per mobile
+- Fonte: CLIENTE. Tolto 'Oppure richiedi una demo': in hero resta solo 'Parla con un esperto'.
+- Menu ancore sotto 1024px: pulsante SEZIONI che apre un pannello a tendina con le voci, CTA Contattaci sempre visibile; si chiude scegliendo una voce. Desktop invariato.
+

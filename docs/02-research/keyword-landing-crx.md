@@ -36,10 +36,9 @@ Gli altri gruppi (robot industriali, delta/SCARA, ROBODRILL, ROBOSHOT, brand mac
 - "Non tutti i cobot sono uguali" → H2 benefit.
 - "Automatizza un passo alla volta" → frase di chiusura della sezione problema.
 - "Turni non presidiati", "Più ore macchina", "Meno carichi manuali", "piccoli lotti misti" → card applicazioni.
-- "Richiedi una demo" / "Prova un cobot CRX" → link secondario in hero "Oppure richiedi una demo".
+- "Richiedi una demo" / "Prova un cobot CRX" → non usato: in hero resta la sola CTA "Parla con un esperto" (decisione Sara, 2026-11-26: due CTA verso la stessa sezione non hanno senso).
 - "Affidabilità FANUC con supporto e assistenza in Italia" → card "Assistenza in Italia". Il claim è nel materiale del cliente; i dettagli (sedi, tecnici, ricambi) restano da confermare.
 
 ## Aperti
 
-- La CTA principale resta "Parla con un esperto" (struttura approvata da Sara); "Richiedi una demo" è secondaria. Il form non distingue ancora le due richieste.
 - Se la stessa landing riceve anche il traffico "robot pallettizzatore" e "asservimento macchine utensili", valutare blocchi dedicati.

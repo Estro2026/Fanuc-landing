@@ -16,9 +16,7 @@
           <p class="wf-eyebrow">Cobot FANUC CRX</p>
           <h1 class="wf-h1">Robot collaborativi CRX: il primo robot per la tua PMI</h1>
           <p class="wf-hero__lead">La semplicità di un cobot con l'affidabilità della robotica FANUC. CRX lavora accanto ai tuoi operatori, si programma a mano e funziona 8 anni senza manutenzione.*</p>
-          <a href="#contatto" class="wf-btn wf-btn--light">Parla con un esperto</a>
-          <a href="#contatto" class="wf-hero__alt">Oppure richiedi una demo</a>
-          <p class="wf-footnote">* Claim FANUC. Condizioni da verificare prima della pubblicazione.</p>
+          <a href="#contatto" class="wf-btn wf-btn--light">Parla con un esperto</a>          <p class="wf-footnote">* Claim FANUC. Condizioni da verificare prima della pubblicazione.</p>
         </div>
         <div class="wf-ph wf-hero__img">IMMAGINE · cobot CRX al lavoro accanto a un operatore</div>
         <a href="#problema" class="wf-hero__down" aria-label="Scorri alla sezione successiva">↓</a>
@@ -27,11 +25,18 @@
       <!-- Barra ancore — fanuc.eu: 76px, voci 16px, CTA a destra -->
       <nav class="wf-anchors" aria-label="Sezioni della pagina">
         <div class="wf-anchors__bar">
-          <a href="#vantaggi">VANTAGGI</a>
-          <a href="#applicazioni">APPLICAZIONI</a>
-          <a href="#incentivi">IPERAMMORTAMENTO</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contatto" class="wf-btn wf-btn--light">Contattaci</a>
+          <!-- Tablet/mobile: le voci si aprono in un pannello sotto la barra -->
+          <button
+            type="button"
+            class="wf-anchors__toggle"
+            :aria-expanded="navOpen"
+            aria-controls="wf-anchors-list"
+            @click="navOpen = !navOpen"
+          >SEZIONI <span class="wf-anchors__chev" aria-hidden="true"></span></button>
+          <ul id="wf-anchors-list" class="wf-anchors__list" :class="{ 'is-open': navOpen }">
+            <li v-for="a in anchors" :key="a[0]"><a :href="a[1]" @click="navOpen = false">{{ a[0] }}</a></li>
+          </ul>
+          <a href="#contatto" class="wf-btn wf-btn--light" @click="navOpen = false">Contattaci</a>
         </div>
       </nav>
 
@@ -181,6 +186,16 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
+const navOpen = ref(false)
+const anchors = [
+  ['VANTAGGI', '#vantaggi'],
+  ['APPLICAZIONI', '#applicazioni'],
+  ['IPERAMMORTAMENTO', '#incentivi'],
+  ['FAQ', '#faq'],
+]
+
 // Copy: PROPOSTA. Fatti tecnici da fanuc.eu/it-it/serie-crx (RICERCA).
 // Keyword e spunti dal file Google Ads nov26-mar27 (MATERIALE): vedi docs/02-research/keyword-landing-crx.md
 const problems = [
@@ -298,15 +313,19 @@ body { margin: 0; }
 .wf-hero__text .wf-h1, .wf-hero__lead { max-width: 540px; }
 .wf-hero__lead { font-size: 28px; line-height: 39.2px; margin-bottom: 32px; }
 .wf-hero__img { align-self: center; height: 476px; }
-.wf-hero__alt { display: inline-block; margin-left: 24px; font-size: 16px; line-height: 22px; font-weight: 700; color: var(--ink); }
 .wf-hero__down { position: absolute; left: 50%; bottom: 31px; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: var(--ink); display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 700; }
 
 /* Barra ancore — 76px */
 .wf-anchors { position: sticky; top: 0; z-index: 9; margin-bottom: 84px; }
 /* Fondo al vivo; testo e CTA restano dove erano: 120px di margine pagina + 20px (sinistra) / +2px (destra) */
 .wf-anchors__bar { height: 76px; background: var(--ink); display: flex; align-items: center; gap: 44px; padding: 0 122px 0 140px; }
-.wf-anchors__bar a:not(.wf-btn) { color: #fff; font-size: 16px; line-height: 24px; text-decoration: none; white-space: nowrap; }
-.wf-anchors__bar .wf-btn { margin-left: auto; }
+.wf-anchors__list { display: flex; gap: 44px; }
+.wf-anchors__list a { color: #fff; font-size: 16px; line-height: 24px; text-decoration: none; white-space: nowrap; }
+.wf-anchors__bar .wf-btn { margin-left: auto; white-space: nowrap; }
+.wf-anchors__toggle { display: none; align-items: center; gap: 10px; background: none; border: 0; color: #fff; font: 700 14px/20px Arial, sans-serif; letter-spacing: .02em; cursor: pointer; padding: 12px 0; min-height: 44px; }
+.wf-anchors__chev { width: 8px; height: 8px; border-right: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(45deg); margin-top: -4px; transition: transform .2s, margin .2s; }
+.wf-anchors__toggle[aria-expanded="true"] .wf-anchors__chev { transform: rotate(-135deg); margin-top: 4px; }
+.wf-anchors__bar a:focus-visible, .wf-anchors__toggle:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 
 /* Moduli — distanza 84px */
 .wf-module { margin-bottom: 84px; }
@@ -396,7 +415,12 @@ body { margin: 0; }
 /* Tablet */
 @media (max-width: 1023px) {
   .wf-grid3 { grid-template-columns: repeat(2, 1fr); }
-  .wf-anchors__bar { gap: 24px; overflow-x: auto; }
+  /* Menu ancore tablet/mobile: pulsante SEZIONI + pannello a tendina, CTA sempre visibile */
+  .wf-anchors__bar { position: relative; gap: 16px; }
+  .wf-anchors__toggle { display: inline-flex; }
+  .wf-anchors__list { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--ink); border-top: 1px solid #595959; padding: 8px 0 16px; }
+  .wf-anchors__list.is-open { display: flex; }
+  .wf-anchors__list a { display: block; padding: 14px 68px; font-size: 16px; }
   .wf-hero__lead, .wf-lead { font-size: 22px; line-height: 30.8px; }
   .wf-h1 { font-size: 40px; line-height: 48px; }
 }
@@ -410,9 +434,7 @@ body { margin: 0; }
   .wf-hero { grid-template-columns: 1fr; min-height: 0; }
   .wf-hero__img { order: -1; height: auto; aspect-ratio: 375 / 246; }
   .wf-hero__text { padding: 32px 16px 0; max-width: none; }
-  .wf-hero__text .wf-btn { display: block; text-align: center; }
-  .wf-hero__alt { display: block; margin: 16px 0 0; text-align: center; }
-  .wf-hero__down { display: none; }
+  .wf-hero__text .wf-btn { display: block; text-align: center; }  .wf-hero__down { display: none; }
   .wf-h1 { font-size: 32px; line-height: 40px; }
   .wf-h2 { font-size: 28px; line-height: 36px; margin-bottom: 24px; }
   .wf-h3 { font-size: 22px; line-height: 30px; font-weight: 500; }
@@ -421,8 +443,8 @@ body { margin: 0; }
   .wf-hero__lead, .wf-lead { font-size: 22px; line-height: 30.8px; }
   .wf-module, .wf-hero, .wf-anchors { margin-bottom: 56px; }
   .wf-anchors__bar { height: 56px; padding: 0 16px; }
-  .wf-anchors__bar a:not(.wf-btn) { font-size: 14px; }
-  .wf-anchors__bar .wf-btn { padding: 10px 16px; font-size: 14px; }
+  .wf-anchors__list a { padding: 14px 16px; }
+  .wf-anchors__bar .wf-btn { padding: 10px 16px; font-size: 14px; line-height: 20px; }
   .wf-grid3, .wf-grid2, .wf-split, .wf-quote { grid-template-columns: 1fr; }
   .wf-grid2 { gap: 32px; }
   .wf-acard__text, .wf-quote__text { padding: 20px 0 0; }
