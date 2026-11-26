@@ -96,7 +96,7 @@
       </section>
 
       <!-- 6. PERCHÉ FANUC — 3 card + testimonianza + loghi -->
-      <section class="wf-module wf-shell">
+      <section id="perche-fanuc" class="wf-module wf-shell">
         <h2 class="wf-h2">Perché FANUC</h2>
         <ul class="wf-grid3">
           <li v-for="w in why" :key="w.t" class="wf-icard">
@@ -105,7 +105,7 @@
             <p class="wf-body">{{ w.c }}</p>
           </li>
         </ul>
-        <figure class="wf-quote">
+        <figure id="testimonianza" class="wf-quote">
           <div class="wf-ph wf-quote__img">FOTO · Bonvicini Carpenteria</div>
           <div class="wf-quote__text">
             <blockquote class="wf-h3">«Grazie a una semplice programmazione, è bastata un'ora per preparare il nostro CRX-10iA/L alla saldatura.»</blockquote>
@@ -159,7 +159,7 @@
           <div v-for="col in footerCols" :key="col.t" class="wf-footer__col">
             <p class="wf-footer__title">{{ col.t }}</p>
             <ul>
-              <li v-for="l in col.l" :key="l[0]"><a :href="l[1]" target="_blank" rel="noopener noreferrer">{{ l[0] }}</a></li>
+              <li v-for="l in col.l" :key="l[0]"><a :href="l[1]">{{ l[0] }}</a></li>
             </ul>
           </div>
         </div>
@@ -168,7 +168,11 @@
           <a v-for="s in social" :key="s[0]" :href="s[1]" target="_blank" rel="noopener noreferrer" :aria-label="s[0]">{{ s[0][0] }}</a>
         </div>
         <ul class="wf-footer__legal">
-          <li v-for="l in legal" :key="l[0]"><a :href="`https://www.fanuc.eu/it-it/${l[1]}`" target="_blank" rel="noopener noreferrer">{{ l[0] }}</a></li>
+          <!-- Pagine legali obbligatorie: si aprono in una nuova scheda, la landing resta aperta. "Contattaci" porta al form. -->
+          <li v-for="l in legal" :key="l[0]">
+            <a v-if="l[1].startsWith('#')" :href="l[1]">{{ l[0] }}</a>
+            <a v-else :href="`https://www.fanuc.eu/it-it/${l[1]}`" target="_blank" rel="noopener noreferrer">{{ l[0] }}</a>
+          </li>
         </ul>
       </div>
     </footer>
@@ -217,12 +221,13 @@ const faq = [
 ]
 
 const E = 'https://www.fanuc.eu/it-it/'
+// Footer: stessa struttura di fanuc.eu, ma le colonne portano alle sezioni della landing (nessuna uscita).
 const footerCols = [
-  { t: 'PRODOTTI', l: [['ROBOT COLLABORATIVI CRX', E + 'serie-crx'], ['DESCRIZIONE DEL PRODOTTO', E + 'descrizione-del-prodotto']] },
-  { t: 'SOLUZIONI', l: [['CASI DI SUCCESSO', E + 'casi-di-studio/il-cobot-crx-di-fanuc-aumenta-la-flessibilita-della-produzione'], ['IPERAMMORTAMENTO 2026', E + 'fanuc-iper-ammortamento-2026']] },
-  { t: 'SERVIZIO CLIENTI', l: [['ASSISTENZA AI CLIENTI', E + 'lattenzione-al-cliente-attraverso-servizi-sostenibili']] },
-  { t: 'EDUCATION', l: [['FORMAZIONE CRX', 'https://crx.fanuc.eu/']] },
-  { t: 'CONTATTI', l: [['CONTATTI', E + 'contacting-fanuc']] },
+  { t: 'SERIE CRX', l: [['LE SFIDE DELLE PMI', '#problema'], ['8 VANTAGGI', '#vantaggi']] },
+  { t: 'SOLUZIONI', l: [['APPLICAZIONI PER SETTORE', '#applicazioni'], ['CASO DI SUCCESSO', '#testimonianza']] },
+  { t: 'INCENTIVI', l: [['IPERAMMORTAMENTO 2026', '#incentivi']] },
+  { t: 'SUPPORTO', l: [['PERCHÉ FANUC', '#perche-fanuc'], ['DOMANDE FREQUENTI', '#faq']] },
+  { t: 'CONTATTI', l: [['PARLA CON UN ESPERTO', '#contatto']] },
 ]
 const social = [
   ['Facebook', 'https://www.facebook.com/FanucEurope/'],
@@ -235,7 +240,7 @@ const legal = [
   ['TERMINI E CONDIZIONI DI ACQUISTO', 'termini-e-condizioni-di-fanuc'],
   ['CANALI PER LA SEGNALAZIONE DELLA CONFORMITÀ', 'canali-di-segnalazione-della-conformita-fanuc'],
   ['NOTE LEGALI', 'note-legali'],
-  ['CONTATTACI', 'contacting-fanuc'],
+  ['CONTATTACI', '#contatto'],
 ]
 </script>
 
@@ -301,7 +306,7 @@ body { margin: 0; }
 
 /* Moduli — distanza 84px */
 .wf-module { margin-bottom: 84px; }
-.wf section[id] { scroll-margin-top: 108px; } /* barra ancore 76px + 32px */
+.wf section[id], .wf figure[id] { scroll-margin-top: 108px; } /* barra ancore 76px + 32px */
 .wf-after { margin-top: 32px; }
 
 /* Griglie */

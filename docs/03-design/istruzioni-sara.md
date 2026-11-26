@@ -111,3 +111,7 @@
 ## 2026-11-26 · Wireframe: immagini hero e iperammortamento coerenti
 - Fonte: CLIENTE. Stessa regola per entrambe: testo 540px dal margine 120px, immagine 713x476 al vivo a destra, immagine e testo centrati in verticale. Mobile: immagine sopra a tutta larghezza.
 
+
+## 2026-11-26 · Wireframe: footer senza uscite
+- Fonte: CLIENTE. Struttura footer fanuc.eu invariata (colonne, social, link legali). Le colonne puntano alle sezioni della landing; Contattaci porta al form. Pagine legali e social si aprono in una nuova scheda, la landing resta aperta.
+
