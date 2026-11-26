@@ -92,3 +92,7 @@
 - Fase: wireframe alternativo. Fonte: CLIENTE (istruzione Sara). Copy: PROPOSTA.
 - Testo: altra versione su branch separato, stesso contenuto, wireframe; struttura semplice come le pagine fanuc.eu ROBOSHOT Plast 2026, Iperammortamento 2026 e Descrizione del prodotto. Niente video in hero. Copy più diretto. Obiettivo: far conoscere il prodotto e raccogliere lead.
 - Il mockup su `main` non è toccato.
+
+## 2026-11-26 · Wireframe: header, form e footer come fanuc.eu
+- Fonte: CLIENTE (istruzione Sara). Header (fascia gialla, barra bianca, logo rosso, CTA gialla), form (fondo giallo, campi bianchi con etichetta a linguetta, INVIA scuro) e footer (#06161F, menu a 2 colonne, social, link legali) replicati dalle pagine fanuc.eu indicate.
+
