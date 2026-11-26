@@ -96,3 +96,10 @@
 ## 2026-11-26 · Wireframe: header, form e footer come fanuc.eu
 - Fonte: CLIENTE (istruzione Sara). Header (fascia gialla, barra bianca, logo rosso, CTA gialla), form (fondo giallo, campi bianchi con etichetta a linguetta, INVIA scuro) e footer (#06161F, menu a 2 colonne, social, link legali) replicati dalle pagine fanuc.eu indicate.
 
+
+## 2026-11-26 · Wireframe v2: px fanuc.eu, scala di grigi, struttura 7 sezioni
+- Fonte: CLIENTE (istruzione Sara). Copy: PROPOSTA, fatti da fanuc.eu/it-it/serie-crx (RICERCA).
+- Misure rilevate a 1440px su ROBOSHOT Plast 2026, Iperammortamento 2026, Descrizione del prodotto: margini 120px, contenuto 1185px, fascia 32px + header 120px, logo 251x56, hero 747px (immagine 713x476), moduli distanziati 84px, H1 56/66, H2 42/52, H3 32/40, card 384px (padding 32/20/36, icona 172px), immagini applicazioni 580x386, form 2 colonne 563px con campi 60px, footer padding 60/16. Mobile @375: margini 16px, H1 32/40.
+- Header, form e footer in scala di grigi come il resto del wireframe.
+- Struttura: 1 Hero · 2 Problema PMI (3 punti) · 3 Otto benefit con mini video · 4 Applicazioni per settore · 5 Iperammortamento · 6 Perché FANUC · 7 FAQ e form breve.
+- Da confermare: condizioni claim 8 anni, assistenza in Italia (non presente su serie-crx), aliquote e requisiti iperammortamento, loghi clienti.
